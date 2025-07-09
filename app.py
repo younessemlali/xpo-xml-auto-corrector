@@ -31,15 +31,13 @@ def load_corrections():
     try:
         # URL du fichier corrections.json dans votre repository
         url = "https://raw.githubusercontent.com/younessemalii/xpo-xml-auto-corrector/main/corrections.json"
-        response = requests.get(url)
+        response = requests.get(url, timeout=10)
         
         if response.status_code == 200:
             return json.loads(response.text)
         else:
-            st.warning("⚠️ Impossible de charger les corrections depuis GitHub")
             return {}
-    except Exception as e:
-        st.error(f"❌ Erreur lors du chargement des corrections: {e}")
+    except Exception:
         return {}
 
 def extract_order_number(xml_content):
@@ -61,8 +59,7 @@ def extract_order_number(xml_content):
                     return id_value.text.strip()
         
         return None
-    except Exception as e:
-        st.error(f"❌ Erreur extraction numero commande: {e}")
+    except Exception:
         return None
 
 def add_customer_job_code(xml_content, job_code):
@@ -86,8 +83,7 @@ def add_customer_job_code(xml_content, job_code):
             xml_content = re.sub(pattern, replacement, xml_content)
             return xml_content, "ajout"
     
-    except Exception as e:
-        st.error(f"❌ Erreur ajout CustomerJobCode: {e}")
+    except Exception:
         return xml_content, "erreur"
 
 def apply_corrections(xml_content, order_number, corrections):
@@ -111,15 +107,15 @@ def main():
     """Interface principale"""
     
     # Titre et description
-    st.title("🔧 XML Auto-Corrector")
+    st.title("🔧 XML Auto-Corrector XPO")
     st.write("Correction automatique des fichiers XML selon les non-conformites PIXID")
     
     # Charger les corrections disponibles
-    with st.spinner("🔄 Chargement des corrections depuis GitHub..."):
+    with st.spinner("🔄 Chargement des corrections..."):
         corrections = load_corrections()
     
     if corrections:
-        st.success(f"✅ {len(corrections)} corrections chargees depuis GitHub")
+        st.success(f"✅ {len(corrections)} corrections disponibles")
         
         # Afficher un apercu des corrections disponibles
         with st.expander("📋 Apercu des corrections disponibles"):
@@ -139,7 +135,7 @@ def main():
     xml_file = st.file_uploader(
         "Choisissez votre fichier XML a corriger",
         type=['xml'],
-        help="Le fichier sera automatiquement corrige selon les donnees de GitHub"
+        help="Le fichier sera automatiquement corrige selon les donnees disponibles"
     )
     
     if xml_file is not None:
@@ -199,11 +195,11 @@ def main():
             
             else:
                 st.warning(f"⚠️ Aucune correction trouvee pour la commande **{order_number}**")
-                st.info("💡 Verifiez que Make.com a bien traite l'email de non-conformite pour cette commande")
+                st.info("💡 Verifiez que cette commande necessite bien une correction")
         
         else:
             st.error("❌ Impossible d'extraire le numero de commande du fichier XML")
-            st.info("💡 Verifiez que le fichier contient bien une balise `<OrderId><IdValue>XXXXX</IdValue></OrderId>`")
+            st.info("💡 Verifiez que le fichier contient bien une balise OrderId avec IdValue")
     
     # Informations sur le systeme
     st.write("---")
@@ -214,14 +210,12 @@ def main():
     with col1:
         st.write("**🔄 Processus automatique:**")
         st.write("1. 📧 Reception email non-conformite")
-        st.write("2. 🤖 Make.com analyse l'email")
-        st.write("3. 📊 Mise a jour GitHub automatique")
-        st.write("4. 🔧 Streamlit applique les corrections")
+        st.write("2. 🔧 Correction automatique")
+        st.write("3. 📥 Telechargement fichier corrige")
     
     with col2:
         st.write("**📋 Types de corrections:**")
         st.write("• **CustomerJobCode**: Poste de travail")
-        st.write("• **Autres balises**: Selon les besoins")
         st.write("• **Position**: Apres CostCenterName")
         st.write("• **Format**: Extraction intelligente")
     
