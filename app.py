@@ -26,50 +26,75 @@ def detect_and_decode(file_bytes):
     content = file_bytes.decode('utf-8', errors='replace')
     return content, 'utf-8-with-errors'
 
+@st.cache_data(ttl=300)  # Cache pendant 5 minutes
 def load_corrections():
-    """Charge les corrections depuis GitHub"""
+    """Charge les corrections depuis GitHub avec cache"""
     try:
-        # URL du fichier corrections.json dans votre repository
-        url = "https://raw.githubusercontent.com/younessemalii/xpo-xml-auto-corrector/main/corrections.json"
+        # URL corrigée du fichier corrections.json
+        url = "https://raw.githubusercontent.com/younessemlali/xpo-xml-auto-corrector/main/corrections.json"
         response = requests.get(url, timeout=10)
         
         if response.status_code == 200:
-            return json.loads(response.text)
+            corrections = json.loads(response.text)
+            # Normaliser les clés pour s'assurer qu'elles ont des zéros de tête
+            normalized_corrections = {}
+            for order_id, data in corrections.items():
+                # Normaliser la clé (ajouter des zéros si nécessaire)
+                if order_id and order_id.isdigit() and len(order_id) < 6:
+                    normalized_key = order_id.zfill(6)
+                else:
+                    normalized_key = order_id
+                normalized_corrections[normalized_key] = data
+            return normalized_corrections
         else:
+            st.error(f"❌ Erreur GitHub: {response.status_code}")
             return {}
-    except Exception:
+    except Exception as e:
+        st.error(f"❌ Erreur de connexion: {str(e)}")
         return {}
 
-def extract_order_number(xml_content):
-    """Extrait le numero de commande du XML"""
+def extract_all_order_numbers(xml_content):
+    """Extrait TOUS les numéros de commande du XML (support multi-contrats)"""
+    order_numbers = []
+    
     try:
-        # Chercher la balise OrderId avec IdValue
+        # Méthode 1: Regex pour chercher toutes les balises OrderId avec IdValue
         pattern = r'<OrderId[^>]*>\s*<IdValue>([^<]+)</IdValue>'
-        match = re.search(pattern, xml_content, re.IGNORECASE)
+        matches = re.findall(pattern, xml_content, re.IGNORECASE)
         
-        if match:
-            return match.group(1).strip()
+        for match in matches:
+            order_id = match.strip()
+            # Normaliser avec des zéros de tête si nécessaire
+            if order_id.isdigit() and len(order_id) < 6:
+                order_id = order_id.zfill(6)
+            if order_id not in order_numbers:
+                order_numbers.append(order_id)
         
-        # Alternative: chercher directement IdValue dans OrderId
-        root = ET.fromstring(xml_content)
-        for order_id in root.iter():
-            if 'OrderId' in str(order_id.tag):
-                id_value = order_id.find('.//IdValue')
-                if id_value is not None and id_value.text:
-                    return id_value.text.strip()
+        # Méthode 2: XML parsing comme fallback
+        if not order_numbers:
+            try:
+                root = ET.fromstring(xml_content)
+                for order_id_elem in root.iter():
+                    if 'OrderId' in str(order_id_elem.tag):
+                        id_value = order_id_elem.find('.//IdValue')
+                        if id_value is not None and id_value.text:
+                            order_id = id_value.text.strip()
+                            # Normaliser avec des zéros de tête si nécessaire
+                            if order_id.isdigit() and len(order_id) < 6:
+                                order_id = order_id.zfill(6)
+                            if order_id not in order_numbers:
+                                order_numbers.append(order_id)
+            except ET.ParseError:
+                pass
         
-        return None
+        return order_numbers
     except Exception:
-        return None
+        return []
 
 def add_customer_job_code(xml_content, job_code):
-    """Ajoute la balise CustomerJobCode apres CostCenterName"""
+    """Ajoute la balise CustomerJobCode après CostCenterName"""
     try:
-        # Pattern pour trouver CostCenterName et ajouter CustomerJobCode juste apres
-        pattern = r'(<CostCenterName>[^<]*</CostCenterName>)'
-        replacement = f'\\1\n        <CustomerJobCode>{job_code}</CustomerJobCode>'
-        
-        # Verifier si CustomerJobCode existe deja
+        # Vérifier si CustomerJobCode existe déjà
         if '<CustomerJobCode>' in xml_content:
             # Remplacer la valeur existante
             xml_content = re.sub(
@@ -79,46 +104,69 @@ def add_customer_job_code(xml_content, job_code):
             )
             return xml_content, "mise_a_jour"
         else:
-            # Ajouter la nouvelle balise
-            xml_content = re.sub(pattern, replacement, xml_content)
-            return xml_content, "ajout"
+            # Pattern pour trouver CostCenterName et ajouter CustomerJobCode juste après
+            pattern = r'(<CostCenterName>[^<]*</CostCenterName>)'
+            replacement = f'\\1\n        <CustomerJobCode>{job_code}</CustomerJobCode>'
+            
+            # Compter les occurrences pour s'assurer qu'on fait la substitution
+            matches = re.findall(pattern, xml_content)
+            if matches:
+                xml_content = re.sub(pattern, replacement, xml_content)
+                return xml_content, "ajout"
+            else:
+                # Si CostCenterName n'est pas trouvé, essayer d'autres emplacements
+                # Chercher après <OrderId>...</OrderId>
+                order_pattern = r'(<OrderId[^>]*>.*?</OrderId>)'
+                if re.search(order_pattern, xml_content, re.DOTALL):
+                    order_replacement = f'\\1\n        <CustomerJobCode>{job_code}</CustomerJobCode>'
+                    xml_content = re.sub(order_pattern, order_replacement, xml_content, flags=re.DOTALL)
+                    return xml_content, "ajout_alternatif"
+                else:
+                    return xml_content, "emplacement_non_trouve"
     
-    except Exception:
-        return xml_content, "erreur"
+    except Exception as e:
+        return xml_content, f"erreur: {str(e)}"
 
-def apply_corrections(xml_content, order_number, corrections):
-    """Applique les corrections pour une commande donnee"""
-    if order_number not in corrections:
-        return xml_content, []
+def apply_corrections_to_xml(xml_content, order_numbers, corrections):
+    """Applique les corrections pour toutes les commandes détectées"""
+    all_applied_corrections = []
+    corrected_xml = xml_content
     
-    order_corrections = corrections[order_number]
-    applied_corrections = []
+    for order_number in order_numbers:
+        if order_number in corrections:
+            order_corrections = corrections[order_number]
+            
+            for field, value in order_corrections.items():
+                if field == "CustomerJobCode":
+                    corrected_xml, status = add_customer_job_code(corrected_xml, value)
+                    if status in ["ajout", "mise_a_jour", "ajout_alternatif"]:
+                        all_applied_corrections.append(
+                            f"Commande {order_number} - CustomerJobCode: {value} ({status.replace('_', ' ')})"
+                        )
+                    else:
+                        all_applied_corrections.append(
+                            f"Commande {order_number} - CustomerJobCode: ÉCHEC ({status})"
+                        )
+                # Ici on peut ajouter d'autres types de corrections
     
-    for field, value in order_corrections.items():
-        if field == "CustomerJobCode":
-            xml_content, status = add_customer_job_code(xml_content, value)
-            if status in ["ajout", "mise_a_jour"]:
-                applied_corrections.append(f"CustomerJobCode: {value} ({status})")
-        # Ici on peut ajouter d'autres types de corrections
-    
-    return xml_content, applied_corrections
+    return corrected_xml, all_applied_corrections
 
 def main():
     """Interface principale"""
     
     # Titre et description
     st.title("🔧 XML Auto-Corrector XPO")
-    st.write("Correction automatique des fichiers XML selon les non-conformites PIXID")
+    st.write("Correction automatique des fichiers XML selon les non-conformités PIXID")
     
     # Charger les corrections disponibles
-    with st.spinner("🔄 Chargement des corrections..."):
+    with st.spinner("🔄 Chargement des corrections depuis GitHub..."):
         corrections = load_corrections()
     
     if corrections:
         st.success(f"✅ {len(corrections)} corrections disponibles")
         
-        # Afficher un apercu des corrections disponibles
-        with st.expander("📋 Apercu des corrections disponibles"):
+        # Afficher un aperçu des corrections disponibles
+        with st.expander("📋 Aperçu des corrections disponibles"):
             for order_num, order_corrections in list(corrections.items())[:5]:
                 st.write(f"**Commande {order_num}:**")
                 for field, value in order_corrections.items():
@@ -126,16 +174,17 @@ def main():
             if len(corrections) > 5:
                 st.write(f"... et {len(corrections) - 5} autres commandes")
     else:
-        st.info("ℹ️ Aucune correction disponible pour le moment")
+        st.warning("⚠️ Aucune correction disponible pour le moment")
+        st.info("💡 Vérifiez la connexion à GitHub ou attendez que de nouvelles corrections soient ajoutées")
     
     st.write("---")
     
     # Upload du fichier XML
     st.header("📁 Upload du fichier XML")
     xml_file = st.file_uploader(
-        "Choisissez votre fichier XML a corriger",
+        "Choisissez votre fichier XML à corriger",
         type=['xml'],
-        help="Le fichier sera automatiquement corrige selon les donnees disponibles"
+        help="Le fichier sera automatiquement corrigé selon les données disponibles. Support multi-contrats."
     )
     
     if xml_file is not None:
@@ -143,86 +192,131 @@ def main():
         xml_content, xml_encoding = detect_and_decode(xml_file.read())
         st.success(f"✅ XML lu avec l'encodage: {xml_encoding}")
         
-        # Extraire le numero de commande
-        order_number = extract_order_number(xml_content)
+        # Extraire TOUS les numéros de commande
+        order_numbers = extract_all_order_numbers(xml_content)
         
-        if order_number:
-            st.info(f"🏷️ Numero de commande detecte: **{order_number}**")
+        if order_numbers:
+            st.info(f"🏷️ Numéro(s) de commande détecté(s): **{', '.join(order_numbers)}**")
             
-            # Verifier si des corrections existent pour cette commande
-            if order_number in corrections:
-                st.success(f"✅ Corrections trouvees pour la commande {order_number}")
+            # Vérifier quelles commandes ont des corrections disponibles
+            available_corrections = {}
+            missing_corrections = []
+            
+            for order_number in order_numbers:
+                if order_number in corrections:
+                    available_corrections[order_number] = corrections[order_number]
+                else:
+                    missing_corrections.append(order_number)
+            
+            if available_corrections:
+                st.success(f"✅ Corrections trouvées pour {len(available_corrections)} commande(s)")
                 
-                # Afficher les corrections qui vont etre appliquees
-                order_corrections = corrections[order_number]
-                st.write("**Corrections a appliquer:**")
-                for field, value in order_corrections.items():
-                    st.write(f"• **{field}**: `{value}`")
+                # Afficher les corrections qui vont être appliquées
+                st.write("**Corrections à appliquer:**")
+                for order_num, order_corrections in available_corrections.items():
+                    st.write(f"📋 **Commande {order_num}:**")
+                    for field, value in order_corrections.items():
+                        st.write(f"  • **{field}**: `{value}`")
                 
                 # Bouton pour appliquer les corrections
                 if st.button("🔄 Appliquer les corrections", type="primary"):
                     with st.spinner("🔧 Application des corrections..."):
-                        corrected_xml, applied_corrections = apply_corrections(
-                            xml_content, order_number, corrections
+                        corrected_xml, applied_corrections = apply_corrections_to_xml(
+                            xml_content, order_numbers, corrections
                         )
                     
                     if applied_corrections:
-                        st.success("✅ Corrections appliquees avec succes!")
+                        st.success("✅ Corrections appliquées avec succès!")
                         
-                        # Afficher les corrections appliquees
-                        st.write("**Corrections appliquees:**")
+                        # Afficher les corrections appliquées
+                        st.write("**Corrections appliquées:**")
                         for correction in applied_corrections:
-                            st.write(f"• {correction}")
+                            if "ÉCHEC" in correction:
+                                st.error(f"❌ {correction}")
+                            else:
+                                st.write(f"✅ {correction}")
                         
-                        # Bouton de telechargement
+                        # Bouton de téléchargement
                         timestamp = datetime.now().strftime('%H%M%S')
                         filename = f"{xml_file.name.split('.')[0]}_corrected_{timestamp}.xml"
                         
-                        # Encoder en ISO-8859-1 pour le telechargement
+                        # Encoder en ISO-8859-1 pour le téléchargement
                         try:
                             xml_bytes = corrected_xml.encode('iso-8859-1', errors='replace')
                         except:
                             xml_bytes = corrected_xml.encode('utf-8', errors='replace')
                         
                         st.download_button(
-                            label="📥 Telecharger le XML corrige",
+                            label="📥 Télécharger le XML corrigé",
                             data=xml_bytes,
                             file_name=filename,
                             mime="application/xml"
                         )
                     else:
-                        st.warning("⚠️ Aucune correction n'a pu etre appliquee")
+                        st.warning("⚠️ Aucune correction n'a pu être appliquée")
             
-            else:
-                st.warning(f"⚠️ Aucune correction trouvee pour la commande **{order_number}**")
-                st.info("💡 Verifiez que cette commande necessite bien une correction")
+            if missing_corrections:
+                st.warning(f"⚠️ Aucune correction trouvée pour: **{', '.join(missing_corrections)}**")
+                st.info("💡 Ces commandes ne nécessitent peut-être pas de correction ou seront ajoutées ultérieurement")
         
         else:
-            st.error("❌ Impossible d'extraire le numero de commande du fichier XML")
-            st.info("💡 Verifiez que le fichier contient bien une balise OrderId avec IdValue")
+            st.error("❌ Impossible d'extraire le numéro de commande du fichier XML")
+            st.info("💡 Vérifiez que le fichier contient bien une balise OrderId avec IdValue")
+            
+            # Afficher un aperçu du XML pour debug
+            with st.expander("🔍 Aperçu du contenu XML (pour debug)"):
+                st.text(xml_content[:1000] + "..." if len(xml_content) > 1000 else xml_content)
     
-    # Informations sur le systeme
+    # Informations sur le système
     st.write("---")
-    st.header("ℹ️ Comment ca marche")
+    st.header("ℹ️ Comment ça marche")
     
     col1, col2 = st.columns(2)
     
     with col1:
         st.write("**🔄 Processus automatique:**")
-        st.write("1. 📧 Reception email non-conformite")
-        st.write("2. 🔧 Correction automatique")
-        st.write("3. 📥 Telechargement fichier corrige")
+        st.write("1. 📧 Réception email non-conformité")
+        st.write("2. 🤖 Extraction automatique Google Sheets")
+        st.write("3. 🔄 Synchronisation GitHub toutes les 15min")
+        st.write("4. 🔧 Correction XML instantanée")
+        st.write("5. 📥 Téléchargement fichier corrigé")
     
     with col2:
-        st.write("**📋 Types de corrections:**")
-        st.write("• **CustomerJobCode**: Poste de travail")
-        st.write("• **Position**: Apres CostCenterName")
-        st.write("• **Format**: Extraction intelligente")
+        st.write("**📋 Fonctionnalités:**")
+        st.write("• **Multi-contrats**: Support plusieurs commandes/XML")
+        st.write("• **Auto-sync**: Données mises à jour automatiquement")
+        st.write("• **Zéros préservés**: Format 000721, 001043...")
+        st.write("• **Cache intelligent**: Performance optimisée")
+        st.write("• **Robuste**: Gestion d'erreurs avancée")
     
-    # Derniere mise a jour
+    # Statut du système
+    st.write("---")
+    st.header("📊 Statut du système")
+    
+    col1, col2, col3 = st.columns(3)
+    
+    with col1:
+        if corrections:
+            st.metric("🗂️ Corrections", len(corrections))
+        else:
+            st.metric("🗂️ Corrections", "0", "❌")
+    
+    with col2:
+        # Afficher l'heure de dernière mise à jour
+        current_time = datetime.now().strftime('%H:%M:%S')
+        st.metric("🕒 Dernière vérification", current_time)
+    
+    with col3:
+        # Bouton pour forcer le rechargement
+        if st.button("🔄 Recharger corrections"):
+            st.cache_data.clear()
+            st.rerun()
+    
+    # Dernière mise à jour
     if corrections:
         st.write("---")
-        st.caption(f"🕒 Dernieres corrections chargees: {datetime.now().strftime('%H:%M:%S')}")
+        st.caption(f"🔗 Source: GitHub - younessemlali/xpo-xml-auto-corrector")
+        st.caption(f"🕒 Cache: 5 minutes | Sync auto: 15 minutes")
 
 if __name__ == "__main__":
     main()
