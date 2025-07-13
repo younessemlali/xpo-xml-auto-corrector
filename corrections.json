@@ -21,24 +21,31 @@
     "CustomerJobCode": "TO259"
   },
   "000721": {
-    "CustomerJobCode": "TO259"
+    "CustomerJobCode": "TO259",
+    "AgencyCode": "349"
   },
   "001043": {
-    "CustomerJobCode": "TO259"
+    "CustomerJobCode": "TO259",
+    "AgencyCode": "BLF"
   },
   "000444": {
-    "CustomerJobCode": "TO071"
+    "CustomerJobCode": "TO071",
+    "AgencyCode": "ARF"
   },
   "000747": {
-    "CustomerJobCode": "TO016"
+    "CustomerJobCode": "TO016",
+    "AgencyCode": "TOG"
   },
   "000713": {
-    "CustomerJobCode": "TO259"
+    "CustomerJobCode": "TO259",
+    "AgencyCode": "349"
   },
   "000715": {
-    "CustomerJobCode": "TO259"
+    "CustomerJobCode": "TO259",
+    "AgencyCode": "349"
   },
   "000354": {
-    "CustomerJobCode": "TK129"
+    "CustomerJobCode": "TK129",
+    "AgencyCode": "MDB"
   }
 }
