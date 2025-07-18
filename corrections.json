@@ -55,5 +55,9 @@
   "FRANCE": {
     "CustomerJobCode": "TK128",
     "AgencyCode": null
+  },
+  "001966": {
+    "CustomerJobCode": "TK128",
+    "AgencyCode": "310"
   }
 }
