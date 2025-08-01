@@ -118,5 +118,13 @@
   "000066": {
     "CustomerJobCode": "TK128",
     "AgencyCode": "754"
+  },
+  "000308": {
+    "CustomerJobCode": "TO259",
+    "AgencyCode": "VEN"
+  },
+  "DFP000432": {
+    "CustomerJobCode": "TK128",
+    "AgencyCode": "RP"
   }
 }
