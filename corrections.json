@@ -146,5 +146,13 @@
   "000770": {
     "CustomerJobCode": "TO016",
     "AgencyCode": "TOG"
+  },
+  "000732": {
+    "CustomerJobCode": "TO259",
+    "AgencyCode": "349"
+  },
+  "000730": {
+    "CustomerJobCode": "TO259",
+    "AgencyCode": "349"
   }
 }
