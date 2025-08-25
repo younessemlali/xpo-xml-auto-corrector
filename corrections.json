@@ -162,5 +162,57 @@
   "000815": {
     "CustomerJobCode": "TK128",
     "AgencyCode": "625"
+  },
+  "000487": {
+    "CustomerJobCode": "TO259",
+    "AgencyCode": "ARF"
+  },
+  "000742": {
+    "CustomerJobCode": "TO259",
+    "AgencyCode": null
+  },
+  "000740": {
+    "CustomerJobCode": "TO259",
+    "AgencyCode": null
+  },
+  "000820": {
+    "CustomerJobCode": "TK128",
+    "AgencyCode": null
+  },
+  "000781": {
+    "CustomerJobCode": "TO016",
+    "AgencyCode": null
+  },
+  "000776": {
+    "CustomerJobCode": "TO016",
+    "AgencyCode": null
+  },
+  "002060": {
+    "CustomerJobCode": "TK128",
+    "AgencyCode": "310"
+  },
+  "TRE": {
+    "CustomerJobCode": "TO016",
+    "AgencyCode": "TOG"
+  },
+  "000738": {
+    "CustomerJobCode": "TO259",
+    "AgencyCode": "349"
+  },
+  "000735": {
+    "CustomerJobCode": "TO259",
+    "AgencyCode": "349"
+  },
+  "000365": {
+    "CustomerJobCode": "TK129",
+    "AgencyCode": "MDB"
+  },
+  "000574": {
+    "CustomerJobCode": "TE022",
+    "AgencyCode": "AGT"
+  },
+  "000366": {
+    "CustomerJobCode": "TK129",
+    "AgencyCode": "MDB"
   }
 }
