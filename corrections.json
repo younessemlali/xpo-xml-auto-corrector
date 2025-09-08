@@ -302,5 +302,9 @@
   "000846": {
     "CustomerJobCode": "TK128",
     "AgencyCode": "625"
+  },
+  "000603": {
+    "CustomerJobCode": "TE022",
+    "AgencyCode": "AGT"
   }
 }
