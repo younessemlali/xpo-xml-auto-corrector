@@ -68,8 +68,8 @@
     "AgencyCode": "754"
   },
   "000757": {
-    "CustomerJobCode": "TO016",
-    "AgencyCode": "TOG"
+    "CustomerJobCode": "TO259",
+    "AgencyCode": "349"
   },
   "000357": {
     "CustomerJobCode": "TK129",
@@ -282,5 +282,17 @@
   "000838": {
     "CustomerJobCode": "TK128",
     "AgencyCode": "625"
+  },
+  "000755": {
+    "CustomerJobCode": "TO259",
+    "AgencyCode": "349"
+  },
+  "000759": {
+    "CustomerJobCode": "TO259",
+    "AgencyCode": "349"
+  },
+  "000761": {
+    "CustomerJobCode": "TO259",
+    "AgencyCode": "349"
   }
 }
