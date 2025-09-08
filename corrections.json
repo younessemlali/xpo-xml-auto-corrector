@@ -32,7 +32,7 @@
     "AgencyCode": "310"
   },
   "FRANCE": {
-    "CustomerJobCode": "TK128",
+    "CustomerJobCode": "TE022",
     "AgencyCode": null
   },
   "001966": {
@@ -306,5 +306,13 @@
   "000603": {
     "CustomerJobCode": "TE022",
     "AgencyCode": "AGT"
+  },
+  "000379": {
+    "CustomerJobCode": "TK129",
+    "AgencyCode": "V59"
+  },
+  "000501": {
+    "CustomerJobCode": "TO016",
+    "AgencyCode": "ARF"
   }
 }
