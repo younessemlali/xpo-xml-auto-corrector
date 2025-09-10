@@ -32,7 +32,7 @@
     "AgencyCode": "310"
   },
   "FRANCE": {
-    "CustomerJobCode": "TK128",
+    "CustomerJobCode": "TE022",
     "AgencyCode": null
   },
   "001966": {
@@ -64,8 +64,8 @@
     "AgencyCode": "349"
   },
   "000063": {
-    "CustomerJobCode": "TK128",
-    "AgencyCode": "754"
+    "CustomerJobCode": "TE048",
+    "AgencyCode": "625"
   },
   "000757": {
     "CustomerJobCode": "TO259",
@@ -313,6 +313,18 @@
   },
   "000501": {
     "CustomerJobCode": "TO016",
+    "AgencyCode": "ARF"
+  },
+  "000067": {
+    "CustomerJobCode": "TK128",
+    "AgencyCode": "754"
+  },
+  "000505": {
+    "CustomerJobCode": "TO259",
+    "AgencyCode": "ARF"
+  },
+  "000504": {
+    "CustomerJobCode": "TO259",
     "AgencyCode": "ARF"
   }
 }
