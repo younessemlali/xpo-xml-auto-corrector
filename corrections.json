@@ -144,8 +144,8 @@
     "AgencyCode": "310"
   },
   "000770": {
-    "CustomerJobCode": "TO016",
-    "AgencyCode": "TOG"
+    "CustomerJobCode": "TO259",
+    "AgencyCode": "349"
   },
   "000732": {
     "CustomerJobCode": "TO259",
@@ -326,5 +326,9 @@
   "000504": {
     "CustomerJobCode": "TO259",
     "AgencyCode": "ARF"
+  },
+  "000772": {
+    "CustomerJobCode": "TO259",
+    "AgencyCode": "349"
   }
 }
