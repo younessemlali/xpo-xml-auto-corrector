@@ -350,5 +350,13 @@
   "000388": {
     "CustomerJobCode": "TK129",
     "AgencyCode": "V59"
+  },
+  "000510": {
+    "CustomerJobCode": "TO016",
+    "AgencyCode": "ARF"
+  },
+  "000368": {
+    "CustomerJobCode": "TO259",
+    "AgencyCode": "TOU"
   }
 }
