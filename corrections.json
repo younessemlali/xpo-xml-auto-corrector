@@ -84,8 +84,8 @@
     "AgencyCode": "625"
   },
   "000780": {
-    "CustomerJobCode": "TK128",
-    "AgencyCode": "625"
+    "CustomerJobCode": "TO259",
+    "AgencyCode": "349"
   },
   "000760": {
     "CustomerJobCode": "TO016",
@@ -374,5 +374,9 @@
   "002169": {
     "CustomerJobCode": "TK128",
     "AgencyCode": "IAG"
+  },
+  "000513": {
+    "CustomerJobCode": "TE014",
+    "AgencyCode": "ARF"
   }
 }
