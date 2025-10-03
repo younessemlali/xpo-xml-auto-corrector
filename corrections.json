@@ -434,5 +434,9 @@
   "000120": {
     "CustomerJobCode": "TK128",
     "AgencyCode": "LA"
+  },
+  "002222": {
+    "CustomerJobCode": "TK128",
+    "AgencyCode": "310"
   }
 }
