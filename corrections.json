@@ -70,5 +70,9 @@
   "002262": {
     "CustomerJobCode": "TK128",
     "AgencyCode": "IAG"
+  },
+  "002260": {
+    "CustomerJobCode": "TK128",
+    "AgencyCode": "310"
   }
 }
