@@ -90,5 +90,9 @@
   "000531": {
     "CustomerJobCode": "TO259",
     "AgencyCode": "ARF"
+  },
+  "CE": {
+    "CustomerJobCode": "TK128",
+    "AgencyCode": null
   }
 }
