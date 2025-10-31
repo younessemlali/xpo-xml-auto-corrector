@@ -158,5 +158,9 @@
   "000332": {
     "CustomerJobCode": "TO259",
     "AgencyCode": "VEN"
+  },
+  "000686": {
+    "CustomerJobCode": "TE022",
+    "AgencyCode": "AGT"
   }
 }
