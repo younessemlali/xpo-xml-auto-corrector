@@ -5,7 +5,7 @@
   },
   "FRANCE": {
     "CustomerJobCode": "TO259",
-    "AgencyCode": null
+    "AgencyCode": "349"
   },
   "000551": {
     "CustomerJobCode": "TE014",
@@ -46,5 +46,9 @@
   "002682": {
     "CustomerJobCode": "TK128",
     "AgencyCode": "LM1"
+  },
+  "000860": {
+    "CustomerJobCode": "TO259",
+    "AgencyCode": "349"
   }
 }
