@@ -54,5 +54,25 @@
   "000866": {
     "CustomerJobCode": "TO259",
     "AgencyCode": "349"
+  },
+  "000554": {
+    "CustomerJobCode": "TE014",
+    "AgencyCode": "ARF"
+  },
+  "000402": {
+    "CustomerJobCode": "TO259",
+    "AgencyCode": "TOU"
+  },
+  "000405": {
+    "CustomerJobCode": "TO259",
+    "AgencyCode": "TOU"
+  },
+  "000357": {
+    "CustomerJobCode": "TO259",
+    "AgencyCode": "VEN"
+  },
+  "000361": {
+    "CustomerJobCode": "TO259",
+    "AgencyCode": "VEN"
   }
 }
