@@ -74,5 +74,17 @@
   "000361": {
     "CustomerJobCode": "TO259",
     "AgencyCode": "VEN"
+  },
+  "000873": {
+    "CustomerJobCode": "TO259",
+    "AgencyCode": "349"
+  },
+  "000869": {
+    "CustomerJobCode": "TO259",
+    "AgencyCode": "349"
+  },
+  "000872": {
+    "CustomerJobCode": "TO259",
+    "AgencyCode": "349"
   }
 }
