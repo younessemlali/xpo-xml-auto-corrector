@@ -1,79 +1,7 @@
 {
-  "000721": {
-    "CustomerJobCode": "TE022",
-    "AgencyCode": "AGT"
-  },
   "FRANCE": {
     "CustomerJobCode": "TO259",
     "AgencyCode": null
-  },
-  "000551": {
-    "CustomerJobCode": "TE014",
-    "AgencyCode": "ARF"
-  },
-  "000553": {
-    "CustomerJobCode": "TE014",
-    "AgencyCode": "ARF"
-  },
-  "000856": {
-    "CustomerJobCode": "TO259",
-    "AgencyCode": "349"
-  },
-  "000853": {
-    "CustomerJobCode": "TO259",
-    "AgencyCode": "349"
-  },
-  "000864": {
-    "CustomerJobCode": "TO259",
-    "AgencyCode": "349"
-  },
-  "001020": {
-    "CustomerJobCode": "TK128",
-    "AgencyCode": "625"
-  },
-  "000865": {
-    "CustomerJobCode": "TO259",
-    "AgencyCode": "349"
-  },
-  "000863": {
-    "CustomerJobCode": "TO259",
-    "AgencyCode": "349"
-  },
-  "000861": {
-    "CustomerJobCode": "TO259",
-    "AgencyCode": "349"
-  },
-  "002682": {
-    "CustomerJobCode": "TK128",
-    "AgencyCode": "LM1"
-  },
-  "000860": {
-    "CustomerJobCode": "TO259",
-    "AgencyCode": "349"
-  },
-  "000866": {
-    "CustomerJobCode": "TO259",
-    "AgencyCode": "349"
-  },
-  "000554": {
-    "CustomerJobCode": "TE014",
-    "AgencyCode": "ARF"
-  },
-  "000402": {
-    "CustomerJobCode": "TO259",
-    "AgencyCode": "TOU"
-  },
-  "000405": {
-    "CustomerJobCode": "TO259",
-    "AgencyCode": "TOU"
-  },
-  "000357": {
-    "CustomerJobCode": "TO259",
-    "AgencyCode": "VEN"
-  },
-  "000361": {
-    "CustomerJobCode": "TO259",
-    "AgencyCode": "VEN"
   },
   "000873": {
     "CustomerJobCode": "TO259",
@@ -87,10 +15,6 @@
     "CustomerJobCode": "TO259",
     "AgencyCode": "349"
   },
-  "000751": {
-    "CustomerJobCode": "TK128",
-    "AgencyCode": "IAG"
-  },
   "000880": {
     "CustomerJobCode": "TO259",
     "AgencyCode": "349"
@@ -103,11 +27,11 @@
     "CustomerJobCode": "TO259",
     "AgencyCode": "349"
   },
-  "000881": {
+  "000883": {
     "CustomerJobCode": "TO259",
     "AgencyCode": "349"
   },
-  "000883": {
+  "000881": {
     "CustomerJobCode": "TO259",
     "AgencyCode": "349"
   },
