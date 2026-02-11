@@ -78,5 +78,13 @@
   "000875": {
     "CustomerJobCode": "TO258",
     "AgencyCode": "TOG"
+  },
+  "000567": {
+    "CustomerJobCode": "TE014",
+    "AgencyCode": "ARF"
+  },
+  "000569": {
+    "CustomerJobCode": "TO259",
+    "AgencyCode": "ARF"
   }
 }
