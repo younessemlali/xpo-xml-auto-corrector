@@ -158,5 +158,9 @@
   "000518": {
     "CustomerJobCode": "TO259",
     "AgencyCode": "AY2"
+  },
+  "000522": {
+    "CustomerJobCode": "TO259",
+    "AgencyCode": "703"
   }
 }
