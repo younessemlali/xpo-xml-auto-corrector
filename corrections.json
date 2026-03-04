@@ -1,137 +1,13 @@
 {
-  "FRANCE": {
-    "CustomerJobCode": "TO259",
-    "AgencyCode": null
-  },
-  "000873": {
-    "CustomerJobCode": "TO259",
-    "AgencyCode": "349"
-  },
-  "000869": {
-    "CustomerJobCode": "TO259",
-    "AgencyCode": "349"
-  },
-  "000872": {
-    "CustomerJobCode": "TO259",
-    "AgencyCode": "349"
-  },
-  "000880": {
-    "CustomerJobCode": "TO259",
-    "AgencyCode": "349"
-  },
-  "000879": {
-    "CustomerJobCode": "TO259",
-    "AgencyCode": "349"
-  },
-  "000878": {
-    "CustomerJobCode": "TO259",
-    "AgencyCode": "349"
-  },
-  "000883": {
-    "CustomerJobCode": "TO259",
-    "AgencyCode": "349"
-  },
-  "000881": {
-    "CustomerJobCode": "TO259",
-    "AgencyCode": "349"
-  },
-  "000886": {
-    "CustomerJobCode": "TO259",
-    "AgencyCode": "349"
-  },
-  "000885": {
-    "CustomerJobCode": "TO259",
-    "AgencyCode": "349"
-  },
-  "000365": {
-    "CustomerJobCode": "TO259",
-    "AgencyCode": "VEN"
-  },
-  "000893": {
-    "CustomerJobCode": "TO259",
-    "AgencyCode": "349"
-  },
-  "000895": {
-    "CustomerJobCode": "TO259",
-    "AgencyCode": "349"
-  },
-  "000891": {
-    "CustomerJobCode": "TO259",
-    "AgencyCode": "349"
-  },
-  "000897": {
-    "CustomerJobCode": "TO259",
-    "AgencyCode": "349"
-  },
-  "000069": {
-    "CustomerJobCode": "TE212",
-    "AgencyCode": "750"
-  },
-  "000907": {
-    "CustomerJobCode": "TO259",
-    "AgencyCode": "349"
-  },
-  "000566": {
-    "CustomerJobCode": "TO259",
-    "AgencyCode": "ARF"
-  },
-  "000875": {
-    "CustomerJobCode": "TO258",
-    "AgencyCode": "TOG"
-  },
-  "000567": {
-    "CustomerJobCode": "TE014",
-    "AgencyCode": "ARF"
-  },
-  "000569": {
-    "CustomerJobCode": "TO259",
-    "AgencyCode": "ARF"
-  },
-  "000568": {
-    "CustomerJobCode": "TO259",
-    "AgencyCode": "ARF"
-  },
-  "000570": {
-    "CustomerJobCode": "TO259",
-    "AgencyCode": "ARF"
-  },
-  "000917": {
-    "CustomerJobCode": "TO259",
-    "AgencyCode": "349"
-  },
-  "000918": {
-    "CustomerJobCode": "TO259",
-    "AgencyCode": "349"
-  },
-  "000916": {
-    "CustomerJobCode": "TO259",
-    "AgencyCode": "349"
-  },
-  "000571": {
+  "DFP000458": {
     "CustomerJobCode": "TK128",
-    "AgencyCode": "ARF"
-  },
-  "001068": {
-    "CustomerJobCode": "TK128",
-    "AgencyCode": "625"
-  },
-  "000921": {
-    "CustomerJobCode": "TO259",
-    "AgencyCode": "349"
-  },
-  "000924": {
-    "CustomerJobCode": "TO259",
-    "AgencyCode": "349"
-  },
-  "000919": {
-    "CustomerJobCode": "TO259",
-    "AgencyCode": "349"
+    "AgencyCode": "RP"
   },
   "000581": {
     "CustomerJobCode": "TK128",
     "AgencyCode": "ARF"
   },
-  "000932": {
+  "000934": {
     "CustomerJobCode": "TO259",
     "AgencyCode": "349"
   },
@@ -139,13 +15,9 @@
     "CustomerJobCode": "TO259",
     "AgencyCode": "349"
   },
-  "000934": {
+  "000932": {
     "CustomerJobCode": "TO259",
     "AgencyCode": "349"
-  },
-  "DFP000458": {
-    "CustomerJobCode": "TK128",
-    "AgencyCode": "RP"
   },
   "000517": {
     "CustomerJobCode": "TO259",
