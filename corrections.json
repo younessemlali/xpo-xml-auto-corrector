@@ -46,5 +46,13 @@
   "000823": {
     "CustomerJobCode": "TK128",
     "AgencyCode": "IAG"
+  },
+  "000523": {
+    "CustomerJobCode": "TO259",
+    "AgencyCode": "AY2"
+  },
+  "000524": {
+    "CustomerJobCode": "TO259",
+    "AgencyCode": "AY2"
   }
 }
