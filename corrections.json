@@ -54,5 +54,9 @@
   "000524": {
     "CustomerJobCode": "TO259",
     "AgencyCode": "AY2"
+  },
+  "001103": {
+    "CustomerJobCode": "TK128",
+    "AgencyCode": "625"
   }
 }
