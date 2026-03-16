@@ -78,5 +78,9 @@
   "FRANCE": {
     "CustomerJobCode": "TE212",
     "AgencyCode": null
+  },
+  "000369": {
+    "CustomerJobCode": "TO277",
+    "AgencyCode": "VEN"
   }
 }
