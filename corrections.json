@@ -77,7 +77,7 @@
   },
   "FRANCE": {
     "CustomerJobCode": "TO259",
-    "AgencyCode": "VEN"
+    "AgencyCode": null
   },
   "000369": {
     "CustomerJobCode": "TO277",
@@ -118,5 +118,9 @@
   "000962": {
     "CustomerJobCode": "TO259",
     "AgencyCode": "349"
+  },
+  "000446": {
+    "CustomerJobCode": "TO259",
+    "AgencyCode": "TOU"
   }
 }
