@@ -74,5 +74,9 @@
   "000003": {
     "CustomerJobCode": "TO251",
     "AgencyCode": "LTO"
+  },
+  "000605": {
+    "CustomerJobCode": "TE014",
+    "AgencyCode": "ARF"
   }
 }
