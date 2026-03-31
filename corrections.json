@@ -117,7 +117,7 @@
   },
   "TENANCE": {
     "CustomerJobCode": "TO251",
-    "AgencyCode": null
+    "AgencyCode": "TOG"
   },
   "000858": {
     "CustomerJobCode": "TK128",
@@ -134,5 +134,17 @@
   "000533": {
     "CustomerJobCode": "TO259",
     "AgencyCode": "703"
+  },
+  "000534": {
+    "CustomerJobCode": "TO259",
+    "AgencyCode": "703"
+  },
+  "000004": {
+    "CustomerJobCode": "TO262",
+    "AgencyCode": "TOG"
+  },
+  "001150": {
+    "CustomerJobCode": "TK128",
+    "AgencyCode": "625"
   }
 }
