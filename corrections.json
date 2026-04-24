@@ -246,5 +246,9 @@
   "001220": {
     "CustomerJobCode": "TK128",
     "AgencyCode": "625"
+  },
+  "000380": {
+    "CustomerJobCode": "TO259",
+    "AgencyCode": "VEN"
   }
 }
