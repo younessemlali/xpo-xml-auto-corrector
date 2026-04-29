@@ -258,5 +258,9 @@
   "000923": {
     "CustomerJobCode": "TK128",
     "AgencyCode": "343"
+  },
+  "000967": {
+    "CustomerJobCode": "TO259",
+    "AgencyCode": "VVS"
   }
 }
