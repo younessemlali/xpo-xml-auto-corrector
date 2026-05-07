@@ -294,5 +294,9 @@
   "000648": {
     "CustomerJobCode": "TE014",
     "AgencyCode": "ARF"
+  },
+  "000506": {
+    "CustomerJobCode": "TK128",
+    "AgencyCode": "TOU"
   }
 }
