@@ -298,5 +298,17 @@
   "000506": {
     "CustomerJobCode": "TK128",
     "AgencyCode": "TOU"
+  },
+  "000989": {
+    "CustomerJobCode": "TO259",
+    "AgencyCode": "VVS"
+  },
+  "000988": {
+    "CustomerJobCode": "TO259",
+    "AgencyCode": "VVS"
+  },
+  "000959": {
+    "CustomerJobCode": "TK128",
+    "AgencyCode": "344"
   }
 }
