@@ -300,12 +300,12 @@
     "AgencyCode": "TOU"
   },
   "000989": {
-    "CustomerJobCode": "TO259",
-    "AgencyCode": "VVS"
+    "CustomerJobCode": "TK128",
+    "AgencyCode": "344"
   },
   "000988": {
-    "CustomerJobCode": "TO259",
-    "AgencyCode": "VVS"
+    "CustomerJobCode": "TK128",
+    "AgencyCode": "344"
   },
   "000959": {
     "CustomerJobCode": "TK128",
@@ -350,5 +350,33 @@
   "000965": {
     "CustomerJobCode": "TK128",
     "AgencyCode": "344"
+  },
+  "000991": {
+    "CustomerJobCode": "TK128",
+    "AgencyCode": "344"
+  },
+  "000990": {
+    "CustomerJobCode": "TK128",
+    "AgencyCode": "344"
+  },
+  "000987": {
+    "CustomerJobCode": "TK128",
+    "AgencyCode": "344"
+  },
+  "000992": {
+    "CustomerJobCode": "TK128",
+    "AgencyCode": "344"
+  },
+  "001001": {
+    "CustomerJobCode": "TO259",
+    "AgencyCode": "VVS"
+  },
+  "000124": {
+    "CustomerJobCode": "TO016",
+    "AgencyCode": "VR2"
+  },
+  "000522": {
+    "CustomerJobCode": "TO259",
+    "AgencyCode": "TOU"
   }
 }
