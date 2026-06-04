@@ -233,7 +233,7 @@
   },
   "E": {
     "CustomerJobCode": "TO016",
-    "AgencyCode": "VR2"
+    "AgencyCode": null
   },
   "001195": {
     "CustomerJobCode": "TK128",
