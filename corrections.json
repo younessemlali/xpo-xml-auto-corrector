@@ -4,7 +4,7 @@
     "AgencyCode": null
   },
   "FRANCE": {
-    "CustomerJobCode": "TK128",
+    "CustomerJobCode": "TO016",
     "AgencyCode": null
   },
   "001103": {
@@ -417,7 +417,7 @@
   },
   "001040": {
     "CustomerJobCode": "TK128",
-    "AgencyCode": "344"
+    "AgencyCode": "IAG"
   },
   "001037": {
     "CustomerJobCode": "TK128",
@@ -486,5 +486,25 @@
   "001033": {
     "CustomerJobCode": "TK128",
     "AgencyCode": "IAG"
+  },
+  "001343": {
+    "CustomerJobCode": "TK128",
+    "AgencyCode": "625"
+  },
+  "001342": {
+    "CustomerJobCode": "TK128",
+    "AgencyCode": "625"
+  },
+  "000407": {
+    "CustomerJobCode": "TO259",
+    "AgencyCode": "VEN"
+  },
+  "000131": {
+    "CustomerJobCode": "TO016",
+    "AgencyCode": "VR2"
+  },
+  "000130": {
+    "CustomerJobCode": "TO016",
+    "AgencyCode": "VR2"
   }
 }
