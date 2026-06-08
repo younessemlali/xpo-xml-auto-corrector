@@ -1,6 +1,6 @@
 {
   "SPORT": {
-    "CustomerJobCode": "TO277",
+    "CustomerJobCode": "TO259",
     "AgencyCode": null
   },
   "FRANCE": {
@@ -510,5 +510,13 @@
   "000403": {
     "CustomerJobCode": "TO259",
     "AgencyCode": "VEN"
+  },
+  "000669": {
+    "CustomerJobCode": "TK128",
+    "AgencyCode": "ARF"
+  },
+  "000670": {
+    "CustomerJobCode": "TK128",
+    "AgencyCode": "ARF"
   }
 }
