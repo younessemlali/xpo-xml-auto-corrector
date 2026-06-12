@@ -4,7 +4,7 @@
     "AgencyCode": null
   },
   "FRANCE": {
-    "CustomerJobCode": "TK128",
+    "CustomerJobCode": "TO259",
     "AgencyCode": null
   },
   "001103": {
@@ -534,5 +534,13 @@
   "000132": {
     "CustomerJobCode": "TO016",
     "AgencyCode": "VR2"
+  },
+  "000024": {
+    "CustomerJobCode": "TK128",
+    "AgencyCode": "ARF"
+  },
+  "000213": {
+    "CustomerJobCode": "TO016",
+    "AgencyCode": "NIC"
   }
 }
