@@ -554,5 +554,17 @@
   "000673": {
     "CustomerJobCode": "TK128",
     "AgencyCode": "ARF"
+  },
+  "000674": {
+    "CustomerJobCode": "TK128",
+    "AgencyCode": "ARF"
+  },
+  "001381": {
+    "CustomerJobCode": "TK128",
+    "AgencyCode": "625"
+  },
+  "000337": {
+    "CustomerJobCode": "TO259",
+    "AgencyCode": "VVX"
   }
 }
