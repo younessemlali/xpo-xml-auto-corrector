@@ -232,7 +232,7 @@
     "AgencyCode": "IRU"
   },
   "E": {
-    "CustomerJobCode": "TK128",
+    "CustomerJobCode": "TO016",
     "AgencyCode": null
   },
   "001195": {
@@ -602,5 +602,9 @@
   "000135": {
     "CustomerJobCode": "TO016",
     "AgencyCode": "VR2"
+  },
+  "000575": {
+    "CustomerJobCode": "TK128",
+    "AgencyCode": "TOU"
   }
 }
