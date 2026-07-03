@@ -690,5 +690,13 @@
   "001151": {
     "CustomerJobCode": "TO259",
     "AgencyCode": "E27"
+  },
+  "001152": {
+    "CustomerJobCode": "TO259",
+    "AgencyCode": "E27"
+  },
+  "000139": {
+    "CustomerJobCode": "TO016",
+    "AgencyCode": "VRU"
   }
 }
