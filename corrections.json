@@ -4,8 +4,8 @@
     "AgencyCode": null
   },
   "FRANCE": {
-    "CustomerJobCode": "TK128",
-    "AgencyCode": "344"
+    "CustomerJobCode": "TO259",
+    "AgencyCode": null
   },
   "001103": {
     "CustomerJobCode": "TK128",
@@ -710,5 +710,17 @@
   "000691": {
     "CustomerJobCode": "TK128",
     "AgencyCode": "ARF"
+  },
+  "001101": {
+    "CustomerJobCode": "TO259",
+    "AgencyCode": "IAG"
+  },
+  "000692": {
+    "CustomerJobCode": "TK128",
+    "AgencyCode": "ARF"
+  },
+  "000416": {
+    "CustomerJobCode": "TO259",
+    "AgencyCode": "VEN"
   }
 }
