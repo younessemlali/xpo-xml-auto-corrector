@@ -126,5 +126,9 @@
   "001487": {
     "CustomerJobCode": "TK128",
     "AgencyCode": "625"
+  },
+  "000590": {
+    "CustomerJobCode": "TK128",
+    "AgencyCode": "TOU"
   }
 }
