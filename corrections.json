@@ -118,5 +118,9 @@
   "000694": {
     "CustomerJobCode": "TE014",
     "AgencyCode": "ARF"
+  },
+  "000697": {
+    "CustomerJobCode": "TK128",
+    "AgencyCode": "ARF"
   }
 }
