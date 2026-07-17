@@ -152,7 +152,7 @@
     "AgencyCode": "ARF"
   },
   "CE": {
-    "CustomerJobCode": "TK128",
+    "CustomerJobCode": "TO071",
     "AgencyCode": null
   },
   "001114": {
@@ -193,6 +193,10 @@
   },
   "000119": {
     "CustomerJobCode": "TO259",
+    "AgencyCode": "ARF"
+  },
+  "000070": {
+    "CustomerJobCode": "TK128",
     "AgencyCode": "ARF"
   }
 }
