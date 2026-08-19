@@ -426,5 +426,9 @@
   "001469": {
     "CustomerJobCode": "TK128",
     "AgencyCode": "NY"
+  },
+  "000106": {
+    "CustomerJobCode": "TK128",
+    "AgencyCode": "ARF"
   }
 }
