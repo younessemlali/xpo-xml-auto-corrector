@@ -582,5 +582,9 @@
   "000647": {
     "CustomerJobCode": "TO259",
     "AgencyCode": "BRD"
+  },
+  "000596": {
+    "CustomerJobCode": "TK128",
+    "AgencyCode": "437"
   }
 }
