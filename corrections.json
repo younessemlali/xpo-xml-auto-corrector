@@ -622,5 +622,21 @@
   "001249": {
     "CustomerJobCode": "TO259",
     "AgencyCode": "CN2"
+  },
+  "001257": {
+    "CustomerJobCode": "TO259",
+    "AgencyCode": "CN2"
+  },
+  "001578": {
+    "CustomerJobCode": "TK128",
+    "AgencyCode": "NY"
+  },
+  "001262": {
+    "CustomerJobCode": "TK128",
+    "AgencyCode": "IAG"
+  },
+  "000651": {
+    "CustomerJobCode": "TO259",
+    "AgencyCode": "BRD"
   }
 }
