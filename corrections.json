@@ -221,7 +221,7 @@
   },
   "001127": {
     "CustomerJobCode": "TO259",
-    "AgencyCode": "IAG"
+    "AgencyCode": "349"
   },
   "001132": {
     "CustomerJobCode": "TK128",
@@ -738,5 +738,17 @@
   "001290": {
     "CustomerJobCode": "TO259",
     "AgencyCode": "IAG"
+  },
+  "001285": {
+    "CustomerJobCode": "TK128",
+    "AgencyCode": "IAG"
+  },
+  "000794": {
+    "CustomerJobCode": "TK128",
+    "AgencyCode": "ARF"
+  },
+  "000792": {
+    "CustomerJobCode": "TK128",
+    "AgencyCode": "ARF"
   }
 }
