@@ -766,5 +766,13 @@
   "000075": {
     "CustomerJobCode": "TO259",
     "AgencyCode": "KF"
+  },
+  "000076": {
+    "CustomerJobCode": "TM012",
+    "AgencyCode": "KF"
+  },
+  "000656": {
+    "CustomerJobCode": "TK128",
+    "AgencyCode": "437"
   }
 }
