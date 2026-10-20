@@ -830,5 +830,17 @@
   "000672": {
     "CustomerJobCode": "TK128",
     "AgencyCode": "437"
+  },
+  "000123": {
+    "CustomerJobCode": "TE039",
+    "AgencyCode": "SVI"
+  },
+  "000679": {
+    "CustomerJobCode": "TK128",
+    "AgencyCode": "437"
+  },
+  "001219": {
+    "CustomerJobCode": "TO259",
+    "AgencyCode": "VVS"
   }
 }
