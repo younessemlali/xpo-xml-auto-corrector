@@ -870,5 +870,13 @@
   "000702": {
     "CustomerJobCode": "TK128",
     "AgencyCode": "437"
+  },
+  "001322": {
+    "CustomerJobCode": "TO259",
+    "AgencyCode": "CN2"
+  },
+  "001649": {
+    "CustomerJobCode": "TE044",
+    "AgencyCode": "NY"
   }
 }
