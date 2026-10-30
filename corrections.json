@@ -922,5 +922,9 @@
   "001327": {
     "CustomerJobCode": "TO259",
     "AgencyCode": "CN2"
+  },
+  "001838": {
+    "CustomerJobCode": "TO259",
+    "AgencyCode": "DN1"
   }
 }
