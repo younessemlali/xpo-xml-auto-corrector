@@ -990,5 +990,13 @@
   "001827": {
     "CustomerJobCode": "TO259",
     "AgencyCode": "BLF"
+  },
+  "001882": {
+    "CustomerJobCode": "TO259",
+    "AgencyCode": "DN1"
+  },
+  "000817": {
+    "CustomerJobCode": "TK128",
+    "AgencyCode": "ARF"
   }
 }
