@@ -377,7 +377,7 @@
   },
   "000741": {
     "CustomerJobCode": "TK128",
-    "AgencyCode": "ARF"
+    "AgencyCode": "437"
   },
   "001666": {
     "CustomerJobCode": "TO259",
@@ -986,5 +986,9 @@
   "000136": {
     "CustomerJobCode": "TE014",
     "AgencyCode": "SVI"
+  },
+  "001827": {
+    "CustomerJobCode": "TO259",
+    "AgencyCode": "BLF"
   }
 }
