@@ -925,7 +925,7 @@
   },
   "001838": {
     "CustomerJobCode": "TO259",
-    "AgencyCode": "DN1"
+    "AgencyCode": "BLF"
   },
   "000810": {
     "CustomerJobCode": "TK128",
@@ -1006,5 +1006,9 @@
   "001875": {
     "CustomerJobCode": "TO259",
     "AgencyCode": "DN1"
+  },
+  "001354": {
+    "CustomerJobCode": "TO259",
+    "AgencyCode": "CN2"
   }
 }
