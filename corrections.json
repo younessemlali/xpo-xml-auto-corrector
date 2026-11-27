@@ -1058,5 +1058,13 @@
   "001709": {
     "CustomerJobCode": "TE044",
     "AgencyCode": "NY"
+  },
+  "000826": {
+    "CustomerJobCode": "TK128",
+    "AgencyCode": "ARF"
+  },
+  "001366": {
+    "CustomerJobCode": "TO259",
+    "AgencyCode": "CN2"
   }
 }
