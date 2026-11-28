@@ -529,7 +529,7 @@
   },
   "000762": {
     "CustomerJobCode": "TK128",
-    "AgencyCode": "ARF"
+    "AgencyCode": "437"
   },
   "000134": {
     "CustomerJobCode": "TK128",
@@ -1066,5 +1066,29 @@
   "001366": {
     "CustomerJobCode": "TO259",
     "AgencyCode": "CN2"
+  },
+  "003844": {
+    "CustomerJobCode": "TK128",
+    "AgencyCode": "N51"
+  },
+  "000012": {
+    "CustomerJobCode": "TK128",
+    "AgencyCode": "CP1"
+  },
+  "001168": {
+    "CustomerJobCode": "TO259",
+    "AgencyCode": "349"
+  },
+  "000095": {
+    "CustomerJobCode": "TE048",
+    "AgencyCode": "BQ"
+  },
+  "000447": {
+    "CustomerJobCode": "TO259",
+    "AgencyCode": "VEN"
+  },
+  "000013": {
+    "CustomerJobCode": "TK128",
+    "AgencyCode": "CP1"
   }
 }
